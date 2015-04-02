@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Current Activity</string>
+	<string name="log" translatable="false">Log</string>
+	<string name="show_window">Show floating window</string>
+	<string name="is_running">%s is running</string>
+	<string name="touch_to_open">Touch to open app.</string>
+	<string name="stop">Stop</string>
+
+    <string name="dialog_enable_accessibility_msg">It only works after you enable my Accessibility Service.</string>
+    <string name="dialog_enable_accessibility_positive_btn">Enable It</string>
+</resources>

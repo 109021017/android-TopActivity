@@ -1,0 +1,14 @@
+
+*.iml
+
+app/build/**
+
+willme.keystore
+
+local.properties
+
+build/intermediates/dex-cache/cache.xml
+
+build/intermediates/model_data.bin
+
+import-summary.txt

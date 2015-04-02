@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="use_watching_service">false</bool>
+    <bool name="use_accessibility_service">true</bool>
+</resources>

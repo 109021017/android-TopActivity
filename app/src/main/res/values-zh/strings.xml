@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">当前Activity</string>
+	<string name="show_window">显示悬浮窗</string>
+
+    <string name="is_running">%s is running</string>
+    <string name="touch_to_open">Touch to open app.</string>
+    <string name="stop">Stop</string>
+
+    <string name="dialog_enable_accessibility_msg">打开我的 \"辅助功能\" 后才能用哦.</string>
+    <string name="dialog_enable_accessibility_positive_btn">去设置</string>
+</resources>
