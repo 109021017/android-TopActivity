@@ -56,7 +56,13 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
                                 startActivity(intent);
                             }
                         })
-                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNegativeButton(android.R.string.cancel
+                                , new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                resetUI();
+                            }
+                        })
                         .setOnCancelListener(new DialogInterface.OnCancelListener() {
                             @Override
                             public void onCancel(DialogInterface dialog) {
