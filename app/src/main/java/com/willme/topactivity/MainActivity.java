@@ -12,18 +12,15 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class MainActivity extends Activity implements OnCheckedChangeListener {
 	
-	CompoundButton mLogSwitch, mWindowSwitch;
+	CompoundButton mWindowSwitch;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		TasksWindow.show(this, "");
-		mLogSwitch = (CompoundButton) findViewById(R.id.sw_log);
 		mWindowSwitch = (CompoundButton) findViewById(R.id.sw_window);
-		mLogSwitch.setChecked(SPHelper.isLog(this));
 		mWindowSwitch.setChecked(SPHelper.isShowWindow(this));
-		mLogSwitch.setOnCheckedChangeListener(this);
 		mWindowSwitch.setOnCheckedChangeListener(this);
         if(getResources().getBoolean(R.bool.use_watching_service))
 		    startService(new Intent(this, WatchingService.class));
@@ -39,7 +36,6 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
         if(getResources().getBoolean(R.bool.use_accessibility_service)){
             if(!AccessibilityManager.hasAccessibilityServiceEnabled(this)){
                 mWindowSwitch.setChecked(false);
-                mLogSwitch.setChecked(false);
             }
         }
     }
@@ -47,7 +43,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(isChecked && getResources().getBoolean(R.bool.use_accessibility_service)){
+        if(isChecked && buttonView == mWindowSwitch && getResources().getBoolean(R.bool.use_accessibility_service)){
             if (!AccessibilityManager.hasAccessibilityServiceEnabled(this)){
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.dialog_enable_accessibility_msg)
@@ -69,17 +65,11 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
                         })
                         .create()
                         .show();
-                if(buttonView == mLogSwitch){
-                    SPHelper.setIsLog(this, isChecked);
-                }else if(buttonView == mWindowSwitch) {
-                    SPHelper.setIsShowWindow(this, isChecked);
-                }
+                        SPHelper.setIsShowWindow(this, isChecked);
                 return;
             }
         }
-		if(buttonView == mLogSwitch){
-			SPHelper.setIsLog(this, isChecked);
-		}else if(buttonView == mWindowSwitch){
+		if(buttonView == mWindowSwitch){
 			SPHelper.setIsShowWindow(this, isChecked);
 			if(!isChecked){
 				TasksWindow.dismiss(this);

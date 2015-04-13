@@ -3,7 +3,6 @@ package com.willme.topactivity;
 import android.accessibilityservice.AccessibilityService;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
 /**
@@ -15,9 +14,6 @@ public class WatchingAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
 
-        if(SPHelper.isLog(WatchingAccessibilityService.this)){
-            Log.d("TopActivity", event.getPackageName() + "/" + event.getClassName());
-        }
         if(SPHelper.isShowWindow(this)){
             TasksWindow.show(this, event.getPackageName() + "\n" + event.getClassName());
         }
@@ -39,4 +35,5 @@ public class WatchingAccessibilityService extends AccessibilityService {
         TasksWindow.dismiss(this);
         return super.onUnbind(intent);
     }
+
 }

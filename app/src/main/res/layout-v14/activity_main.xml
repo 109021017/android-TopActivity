@@ -5,22 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.willme.topactivity.MainActivity">
-    <LinearLayout 
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        android:gravity="center_vertical">
-        <TextView 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/log"/>
-        <Switch 
-            android:id="@+id/sw_log"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="1dp"

@@ -74,9 +74,6 @@ public class WatchingService extends Service {
 			
 			if (!act.equals(text)) {
 				text = act;
-				if(SPHelper.isLog(WatchingService.this)){
-					Log.d("TopActivity", act.replace("\n", "/"));
-				}
 				if(SPHelper.isShowWindow(WatchingService.this)){
 					
 					mHandler.post(new Runnable() {
