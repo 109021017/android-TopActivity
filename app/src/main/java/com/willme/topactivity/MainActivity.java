@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 
     private void resetUI(){
         if(getResources().getBoolean(R.bool.use_accessibility_service)){
-            if(!AccessibilityManager.hasAccessibilityServiceEnabled(this)){
+            if(WatchingAccessibilityService.getInstance() == null){
                 mWindowSwitch.setChecked(false);
             }
         }
@@ -44,7 +44,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
     @Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(isChecked && buttonView == mWindowSwitch && getResources().getBoolean(R.bool.use_accessibility_service)){
-            if (!AccessibilityManager.hasAccessibilityServiceEnabled(this)){
+            if (WatchingAccessibilityService.getInstance() == null){
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.dialog_enable_accessibility_msg)
                         .setPositiveButton(R.string.dialog_enable_accessibility_positive_btn

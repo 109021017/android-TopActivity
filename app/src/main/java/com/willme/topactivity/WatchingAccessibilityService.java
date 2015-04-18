@@ -9,6 +9,7 @@ import android.view.accessibility.AccessibilityEvent;
  * Created by Wen on 1/14/15.
  */
 public class WatchingAccessibilityService extends AccessibilityService {
+    private static WatchingAccessibilityService sInstance;
 
     @SuppressLint("NewApi")
     @Override
@@ -22,18 +23,23 @@ public class WatchingAccessibilityService extends AccessibilityService {
 
     @Override
     public void onInterrupt() {
-
     }
 
     @Override
     protected void onServiceConnected() {
+        sInstance = this;
         super.onServiceConnected();
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
+        sInstance = null;
         TasksWindow.dismiss(this);
         return super.onUnbind(intent);
+    }
+
+    public static WatchingAccessibilityService getInstance(){
+        return sInstance;
     }
 
 }
