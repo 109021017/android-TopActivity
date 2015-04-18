@@ -43,20 +43,6 @@ public class WatchingService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		/*if(SPHelper.isShowWindow(WatchingService.this)){
-			PendingIntent pIntent = PendingIntent.getActivity(WatchingService.this, 0, new Intent(WatchingService.this, MainActivity.class), 0);
-			Notification notification = new NotificationCompat.Builder(WatchingService.this)
-			.setContentTitle(getString(R.string.is_running, getString(R.string.app_name)))
-			.setSmallIcon(R.drawable.ic_notification)
-			.setContentText(getString(R.string.touch_to_open))
-			.setOngoing(true)
-			.addAction(0, getString(R.string.stop), PendingIntent.get)
-			.setContentIntent(pIntent)
-			.build() ;
-			mNotiManager.notify(NOTIF_ID, notification);
-		}else{
-			mNotiManager.cancel(NOTIF_ID);
-		}*/
 		if (timer == null) {
 			timer = new Timer();
 			timer.scheduleAtFixedRate(new RefreshTask(), 0, 500);

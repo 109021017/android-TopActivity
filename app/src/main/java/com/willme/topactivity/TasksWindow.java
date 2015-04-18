@@ -41,9 +41,7 @@ public class TasksWindow {
 	public static void dismiss(Context context) {
 		try {
 			sWindowManager.removeView(sView);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		} catch (Exception e) {}
 	}
 
 }

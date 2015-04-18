@@ -37,6 +37,12 @@
                 android:resource="@xml/accessibility" />
 
         </service>
+
+        <receiver android:name=".NotificationActionReceiver">
+            <intent-filter>
+                <action android:name="com.willme.topactivity.ACTION_NOTIFICATION_RECEIVER"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

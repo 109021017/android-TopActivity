@@ -28,6 +28,9 @@ public class WatchingAccessibilityService extends AccessibilityService {
     @Override
     protected void onServiceConnected() {
         sInstance = this;
+        if(SPHelper.isShowWindow(this)){
+            NotificationActionReceiver.showNotification(this, false);
+        }
         super.onServiceConnected();
     }
 
@@ -35,6 +38,7 @@ public class WatchingAccessibilityService extends AccessibilityService {
     public boolean onUnbind(Intent intent) {
         sInstance = null;
         TasksWindow.dismiss(this);
+        NotificationActionReceiver.cancelNotification(this);
         return super.onUnbind(intent);
     }
 

@@ -5,8 +5,10 @@
 	<string name="log" translatable="false">Log</string>
 	<string name="show_window">Show floating window</string>
 	<string name="is_running">%s is running</string>
-	<string name="touch_to_open">Touch to open app.</string>
-	<string name="stop">Stop</string>
+	<string name="touch_to_open">Touch for settings.</string>
+    <string name="noti_action_pause">Pause</string>
+    <string name="noti_action_resume">Resume</string>
+	<string name="noti_action_stop">Stop</string>
 
     <string name="dialog_enable_accessibility_msg">It only works after you enable my Accessibility Service.</string>
     <string name="dialog_enable_accessibility_positive_btn">Enable It</string>

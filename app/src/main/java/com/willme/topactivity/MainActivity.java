@@ -20,7 +20,6 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 		setContentView(R.layout.activity_main);
 		TasksWindow.show(this, "");
 		mWindowSwitch = (CompoundButton) findViewById(R.id.sw_window);
-		mWindowSwitch.setChecked(SPHelper.isShowWindow(this));
 		mWindowSwitch.setOnCheckedChangeListener(this);
         if(getResources().getBoolean(R.bool.use_watching_service))
 		    startService(new Intent(this, WatchingService.class));
@@ -30,9 +29,19 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
     protected void onResume() {
         super.onResume();
         resetUI();
+        NotificationActionReceiver.cancelNotification(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(SPHelper.isShowWindow(this) && !(getResources().getBoolean(R.bool.use_accessibility_service) && WatchingAccessibilityService.getInstance() == null)){
+            NotificationActionReceiver.showNotification(this, false);
+        }
     }
 
     private void resetUI(){
+        mWindowSwitch.setChecked(SPHelper.isShowWindow(this));
         if(getResources().getBoolean(R.bool.use_accessibility_service)){
             if(WatchingAccessibilityService.getInstance() == null){
                 mWindowSwitch.setChecked(false);
