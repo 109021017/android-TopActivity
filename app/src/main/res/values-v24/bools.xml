@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="qs_tile_service_availability">true</bool>
+</resources>

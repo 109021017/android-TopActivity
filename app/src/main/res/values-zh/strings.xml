@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">当前Activity</string>
+
+    <string name="shortcut_action">开关</string>
+
 	<string name="show_window">显示悬浮窗</string>
+    <string name="use_toggle_notification">快速设置开关启用时关闭通知开关</string>
 
     <string name="is_running">%s 正在运行</string>
     <string name="touch_to_open">点击设置.</string>
@@ -11,4 +15,8 @@
 
     <string name="dialog_enable_accessibility_msg">打开我的 \"辅助功能\" 后才能用哦.</string>
     <string name="dialog_enable_accessibility_positive_btn">去设置</string>
+    <string name="toast_add_tile">请先在快速设置面板中添加快捷开关</string>
+
+    <string name="dialog_enable_overlay_window_msg">Android 7.1.1 以上, 请开启悬浮窗权限</string>
+    <string name="dialog_enable_overlay_window_positive_btn">去设置</string>
 </resources>

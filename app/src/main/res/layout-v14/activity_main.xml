@@ -25,7 +25,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-    <TextView 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#22000000"/>
+    <LinearLayout
+        android:id="@+id/useNotificationPref"
+        android:layout_width="match_parent"
+        android:minHeight="48dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/use_toggle_notification"/>
+        <Switch
+            android:id="@+id/sw_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/divider_useNotificationPref"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#22000000"/>

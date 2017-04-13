@@ -52,9 +52,13 @@ public class NotificationActionReceiver extends BroadcastReceiver {
                 cancelNotification(context);
                 break;
         }
+        context.sendBroadcast(new Intent(QuickSettingTileService.ACTION_UPDATE_TITLE));
     }
 
     public static void showNotification(Context context, boolean isPaused) {
+        if(!SPHelper.isNotificationToggleEnabled(context)){
+            return;
+        }
         PendingIntent pIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentTitle(context.getString(R.string.is_running,
@@ -87,8 +91,7 @@ public class NotificationActionReceiver extends BroadcastReceiver {
     public static PendingIntent getPendingIntent(Context context, int command){
         Intent intent = new Intent(ACTION_NOTIFICATION_RECEIVER);
         intent.putExtra(EXTRA_NOTIFICATION_ACTION, command);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, command, intent, 0);
-        return pendingIntent;
+        return PendingIntent.getBroadcast(context, command, intent, 0);
     }
 
     public static void cancelNotification(Context context){

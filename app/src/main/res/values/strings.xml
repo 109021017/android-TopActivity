@@ -2,14 +2,22 @@
 <resources>
 
     <string name="app_name">Current Activity</string>
-	<string name="log" translatable="false">Log</string>
-	<string name="show_window">Show floating window</string>
-	<string name="is_running">%s is running</string>
-	<string name="touch_to_open">Touch for settings.</string>
+
+    <string name="shortcut_action">Toggle monitor</string>
+
+    <string name="log" translatable="false">Log</string>
+    <string name="show_window">Show floating window</string>
+    <string name="use_toggle_notification">Disable notification toggle while quick setting tile enabled</string>
+    <string name="is_running">%s is running</string>
+    <string name="touch_to_open">Touch for settings.</string>
     <string name="noti_action_pause">Pause</string>
     <string name="noti_action_resume">Resume</string>
-	<string name="noti_action_stop">Stop</string>
+    <string name="noti_action_stop">Stop</string>
 
-    <string name="dialog_enable_accessibility_msg">It only works after you enable my Accessibility Service.</string>
+    <string name="dialog_enable_accessibility_msg">Enable my Accessibility Service in order to get current activity info on Android 5.0+</string>
     <string name="dialog_enable_accessibility_positive_btn">Enable It</string>
+    <string name="toast_add_tile">Add the tile to the quick settings panel first!</string>
+
+    <string name="dialog_enable_overlay_window_msg">Allow permission to show window over other apps on Android 7.1.1+ </string>
+    <string name="dialog_enable_overlay_window_positive_btn">settings</string>
 </resources>

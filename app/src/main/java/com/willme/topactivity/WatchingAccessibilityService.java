@@ -15,8 +15,10 @@ public class WatchingAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
 
-        if(SPHelper.isShowWindow(this)){
-            TasksWindow.show(this, event.getPackageName() + "\n" + event.getClassName());
+        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED){
+            if(SPHelper.isShowWindow(this)){
+                TasksWindow.show(this, event.getPackageName() + "\n" + event.getClassName());
+            }
         }
 
     }
@@ -31,6 +33,7 @@ public class WatchingAccessibilityService extends AccessibilityService {
         if(SPHelper.isShowWindow(this)){
             NotificationActionReceiver.showNotification(this, false);
         }
+        sendBroadcast(new Intent(QuickSettingTileService.ACTION_UPDATE_TITLE));
         super.onServiceConnected();
     }
 
@@ -39,6 +42,7 @@ public class WatchingAccessibilityService extends AccessibilityService {
         sInstance = null;
         TasksWindow.dismiss(this);
         NotificationActionReceiver.cancelNotification(this);
+        sendBroadcast(new Intent(QuickSettingTileService.ACTION_UPDATE_TITLE));
         return super.onUnbind(intent);
     }
 

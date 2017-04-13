@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 25
+    buildToolsVersion '25.0.1'
 
     defaultConfig {
         applicationId "com.willme.topactivity"
-        minSdkVersion 8
-        targetSdkVersion 21
+        minSdkVersion 9
+        targetSdkVersion 25
     }
 
     buildTypes {
@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:support-v4:25.1.0'
 }
