@@ -5,27 +5,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.willme.topactivity.MainActivity">
-    <TextView 
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#22000000"/>
-    <LinearLayout 
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:padding="8dp"
         android:layout_margin="8dp"
         android:gravity="center_vertical">
-        <TextView 
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/show_window"/>
-        <CheckBox 
+        <CheckBox
             android:id="@+id/sw_window"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-    <TextView 
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#22000000"/>

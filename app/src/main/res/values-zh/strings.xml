@@ -4,7 +4,7 @@
 
     <string name="shortcut_action">开关</string>
 
-	<string name="show_window">显示悬浮窗</string>
+    <string name="show_window">显示悬浮窗</string>
     <string name="use_toggle_notification">快速设置开关启用时关闭通知开关</string>
 
     <string name="is_running">%s 正在运行</string>
