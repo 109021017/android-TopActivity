@@ -8,6 +8,8 @@ android {
         applicationId "com.willme.topactivity"
         minSdkVersion 9
         targetSdkVersion 25
+        versionCode 12
+        versionName "1.4.1"
     }
 
     buildTypes {
