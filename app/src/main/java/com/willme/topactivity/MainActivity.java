@@ -17,18 +17,18 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnCheckedChangeListener {
-	
-	public static final String EXTRA_FROM_QS_TILE = "from_qs_tile";
+
+    public static final String EXTRA_FROM_QS_TILE = "from_qs_tile";
     public static final String ACTION_STATE_CHANGED = "com.willme.topactivity.ACTION_STATE_CHANGED";
     CompoundButton mWindowSwitch, mNotificationSwitch;
     private BroadcastReceiver mReceiver;
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		mWindowSwitch = (CompoundButton) findViewById(R.id.sw_window);
-		mWindowSwitch.setOnCheckedChangeListener(this);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mWindowSwitch = (CompoundButton) findViewById(R.id.sw_window);
+        mWindowSwitch.setOnCheckedChangeListener(this);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH){
             if(!getResources().getBoolean(R.bool.qs_tile_service_availability)){
                 findViewById(R.id.useNotificationPref).setVisibility(View.GONE);
@@ -48,7 +48,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
         }
         mReceiver = new UpdateSwitchReceiver();
         registerReceiver(mReceiver, new IntentFilter(ACTION_STATE_CHANGED));
-	}
+    }
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -90,7 +90,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
     }
 
     @Override
-	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(buttonView == mNotificationSwitch){
             if(SPHelper.hasQSTileAdded(this)){
                 SPHelper.setNotificationToggleEnabled(this, !isChecked);
@@ -167,15 +167,15 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
                 return;
             }
         }
-		if(buttonView == mWindowSwitch){
-			SPHelper.setIsShowWindow(this, isChecked);
-			if(!isChecked){
-				TasksWindow.dismiss(this);
-			}else{
-				TasksWindow.show(this, getPackageName()+"\n"+getClass().getName());
-			}
-		}
-	}
+        if(buttonView == mWindowSwitch){
+            SPHelper.setIsShowWindow(this, isChecked);
+            if(!isChecked){
+                TasksWindow.dismiss(this);
+            }else{
+                TasksWindow.show(this, getPackageName()+"\n"+getClass().getName());
+            }
+        }
+    }
 
     @Override
     protected void onDestroy() {

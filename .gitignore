@@ -1,14 +1,22 @@
+# Gradle files
+.gradle/
+build/
 
-*.iml
-
-app/build/**
-
-willme.keystore
-
+# Local configuration file (sdk path, etc)
 local.properties
 
-build/intermediates/dex-cache/cache.xml
+# Android Studio generated folders
+.navigation/
+captures/
+.externalNativeBuild
 
-build/intermediates/model_data.bin
+# IntelliJ project files
+*.iml
+.idea/
 
-import-summary.txt
+# Misc
+.DS_Store
+
+# Keystore files
+*.jks
+*.keystore
