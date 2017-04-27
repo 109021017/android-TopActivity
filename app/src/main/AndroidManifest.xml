@@ -67,8 +67,6 @@
                 <action android:name="com.willme.topactivity.ACTION_NOTIFICATION_RECEIVER" />
             </intent-filter>
         </receiver>
-
-        <activity android:name=".PermissionsActivity"></activity>
     </application>
 
 </manifest>
