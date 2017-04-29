@@ -11,16 +11,18 @@ import android.view.accessibility.AccessibilityEvent;
 public class WatchingAccessibilityService extends AccessibilityService {
     private static WatchingAccessibilityService sInstance;
 
+    public static WatchingAccessibilityService getInstance() {
+        return sInstance;
+    }
+
     @SuppressLint("NewApi")
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-
-        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED){
-            if(SPHelper.isShowWindow(this)){
+        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+            if (SPHelper.isShowWindow(this)) {
                 TasksWindow.show(this, event.getPackageName() + "\n" + event.getClassName());
             }
         }
-
     }
 
     @Override
@@ -30,7 +32,7 @@ public class WatchingAccessibilityService extends AccessibilityService {
     @Override
     protected void onServiceConnected() {
         sInstance = this;
-        if(SPHelper.isShowWindow(this)){
+        if (SPHelper.isShowWindow(this)) {
             NotificationActionReceiver.showNotification(this, false);
         }
         sendBroadcast(new Intent(QuickSettingTileService.ACTION_UPDATE_TITLE));
@@ -45,9 +47,4 @@ public class WatchingAccessibilityService extends AccessibilityService {
         sendBroadcast(new Intent(QuickSettingTileService.ACTION_UPDATE_TITLE));
         return super.onUnbind(intent);
     }
-
-    public static WatchingAccessibilityService getInstance(){
-        return sInstance;
-    }
-
 }

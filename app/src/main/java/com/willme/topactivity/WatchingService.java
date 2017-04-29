@@ -21,13 +21,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class WatchingService extends Service {
-
+    private final int NOTIF_ID = 1;
     private Handler mHandler = new Handler();
-    private  ActivityManager mActivityManager;
+    private ActivityManager mActivityManager;
     private String text = null;
     private Timer timer;
     private NotificationManager mNotiManager;
-    private final int NOTIF_ID = 1;
 
     @Override
     public void onCreate() {
@@ -50,29 +49,6 @@ public class WatchingService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    class RefreshTask extends TimerTask {
-
-        @Override
-        public void run() {
-            List<RunningTaskInfo> rtis = mActivityManager.getRunningTasks(1);
-            String act = rtis.get(0).topActivity.getPackageName() + "\n"
-                    + rtis.get(0).topActivity.getClassName();
-
-            if (!act.equals(text)) {
-                text = act;
-                if(SPHelper.isShowWindow(WatchingService.this)){
-
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            TasksWindow.show(WatchingService.this, text);
-                        }
-                    });
-                }
-            }
-        }
-    }
-
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onTaskRemoved(Intent rootIntent) {
@@ -92,4 +68,25 @@ public class WatchingService extends Service {
         super.onTaskRemoved(rootIntent);
     }
 
+    class RefreshTask extends TimerTask {
+        @Override
+        public void run() {
+            List<RunningTaskInfo> rtis = mActivityManager.getRunningTasks(1);
+            String act = rtis.get(0).topActivity.getPackageName() + "\n"
+                    + rtis.get(0).topActivity.getClassName();
+
+            if (!act.equals(text)) {
+                text = act;
+                if (SPHelper.isShowWindow(WatchingService.this)) {
+
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            TasksWindow.show(WatchingService.this, text);
+                        }
+                    });
+                }
+            }
+        }
+    }
 }

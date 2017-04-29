@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.willme.topactivity">
 
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
         android:allowBackup="true"
@@ -17,35 +18,35 @@
             android:label="@string/app_name"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             <meta-data
                 android:name="android.app.shortcuts"
-                android:resource="@xml/app_shortcuts" />
+                android:resource="@xml/app_shortcuts"/>
         </activity>
 
         <activity
             android:name=".AppShortcutsActivity"
             android:excludeFromRecents="true"
             android:exported="false"
-            android:theme="@style/TransparentTheme" />
+            android:theme="@style/TransparentTheme"/>
 
         <service
             android:name=".WatchingService"
-            android:enabled="@bool/use_watching_service" />
+            android:enabled="@bool/use_watching_service"/>
         <service
             android:name=".WatchingAccessibilityService"
             android:description="@string/app_name"
             android:enabled="@bool/use_accessibility_service"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
             </intent-filter>
 
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility" />
+                android:resource="@xml/accessibility"/>
         </service>
         <service
             android:name=".QuickSettingTileService"
@@ -54,19 +55,18 @@
             android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE" />
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
 
             <meta-data
                 android:name="android.service.quicksettings.ACTIVE_TILE"
-                android:value="true" />
+                android:value="true"/>
         </service>
 
         <receiver android:name=".NotificationActionReceiver">
             <intent-filter>
-                <action android:name="com.willme.topactivity.ACTION_NOTIFICATION_RECEIVER" />
+                <action android:name="com.willme.topactivity.ACTION_NOTIFICATION_RECEIVER"/>
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>

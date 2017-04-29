@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+<shortcuts
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
         android:icon="@drawable/ic_shortcut"
@@ -8,6 +9,6 @@
         <intent
             android:action="com.willme.topactivity.ACTION_TOGGLE_WINDOW"
             android:targetClass="com.willme.topactivity.AppShortcutsActivity"
-            android:targetPackage="com.willme.topactivity" />
+            android:targetPackage="com.willme.topactivity"/>
     </shortcut>
 </shortcuts>

@@ -16,9 +16,13 @@ import android.service.quicksettings.TileService;
  */
 @TargetApi(Build.VERSION_CODES.N)
 public class QuickSettingTileService extends TileService {
-
     public static final String ACTION_UPDATE_TITLE = "com.willme.topactivity.ACTION.UPDATE_TITLE";
     private UpdateTileReceiver mReceiver;
+
+    public static void updateTile(Context context) {
+        TileService.requestListeningState(context.getApplicationContext(), new ComponentName(context, QuickSettingTileService.class));
+        context.sendBroadcast(new Intent(QuickSettingTileService.ACTION_UPDATE_TITLE));
+    }
 
     @Override
     public void onCreate() {
@@ -46,7 +50,6 @@ public class QuickSettingTileService extends TileService {
         updateTile();
     }
 
-
     @Override
     public void onStopListening() {
         unregisterReceiver(mReceiver);
@@ -55,13 +58,13 @@ public class QuickSettingTileService extends TileService {
 
     @Override
     public void onClick() {
-        if(WatchingAccessibilityService.getInstance() == null || !Settings.canDrawOverlays(this)){
+        if (WatchingAccessibilityService.getInstance() == null || !Settings.canDrawOverlays(this)) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra(MainActivity.EXTRA_FROM_QS_TILE, true);
             startActivityAndCollapse(intent);
         } else {
             SPHelper.setIsShowWindow(this, !SPHelper.isShowWindow(this));
-            if(SPHelper.isShowWindow(this)){
+            if (SPHelper.isShowWindow(this)) {
                 TasksWindow.show(this, null);
                 NotificationActionReceiver.showNotification(this, false);
             } else {
@@ -72,25 +75,19 @@ public class QuickSettingTileService extends TileService {
         }
     }
 
-    private void updateTile(){
-        if(WatchingAccessibilityService.getInstance() == null){
+    private void updateTile() {
+        if (WatchingAccessibilityService.getInstance() == null) {
             getQsTile().setState(Tile.STATE_INACTIVE);
         } else {
-            getQsTile().setState(SPHelper.isShowWindow(this)? Tile.STATE_ACTIVE:Tile.STATE_INACTIVE);
+            getQsTile().setState(SPHelper.isShowWindow(this) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
         }
         getQsTile().updateTile();
     }
 
-
-    class UpdateTileReceiver extends BroadcastReceiver{
+    class UpdateTileReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             updateTile();
         }
-    }
-
-    public static void updateTile(Context context){
-        TileService.requestListeningState(context.getApplicationContext(), new ComponentName(context, QuickSettingTileService.class));
-        context.sendBroadcast(new Intent(QuickSettingTileService.ACTION_UPDATE_TITLE));
     }
 }
