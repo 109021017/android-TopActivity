@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#22000000"/>
+    <!--显示悬浮窗-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -29,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#22000000"/>
+    <!--快速设置开关，启用时关闭开关-->
     <LinearLayout
         android:id="@+id/useNotificationPref"
         android:layout_width="match_parent"
@@ -50,5 +52,10 @@
         android:id="@+id/divider_useNotificationPref"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:background="#22000000"/>
+    <TextView
+        android:text="v14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#22000000"/>
 </LinearLayout>
