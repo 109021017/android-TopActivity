@@ -103,7 +103,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
             return;
         }
         if(isChecked && buttonView == mWindowSwitch && getResources().getBoolean(R.bool.use_accessibility_service)){
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1 && !Settings.canDrawOverlays(this)){
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)){
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.dialog_enable_overlay_window_msg)
                         .setPositiveButton(R.string.dialog_enable_overlay_window_positive_btn
