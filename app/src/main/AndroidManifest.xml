@@ -30,6 +30,7 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:theme="@style/TransparentTheme" />
+        <activity android:name=".PermissionsActivity"/>
 
         <service
             android:name=".WatchingService"
@@ -68,7 +69,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".PermissionsActivity"></activity>
     </application>
 
 </manifest>

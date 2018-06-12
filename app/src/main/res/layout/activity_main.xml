@@ -29,4 +29,9 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#22000000"/>
+    <TextView
+        android:text="main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#22000000"/>
 </LinearLayout>
