@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="oval">
-            <solid android:color="#f5f5f5" />
+            <solid android:color="#f5f5f5"/>
         </shape>
     </item>
-    <item android:gravity="center" android:drawable="@drawable/layers" />
+    <item
+        android:drawable="@drawable/layers"
+        android:gravity="center"/>
 </layer-list>
