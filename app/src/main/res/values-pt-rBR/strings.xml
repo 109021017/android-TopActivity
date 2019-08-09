@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Current Activity</string>
+
+    <string name="shortcut_action">Mudar monitor</string>
+
+    <string name="log" translatable="false">Log</string>
+    <string name="show_window">Mostrar janela flutuante</string>
+    <string name="use_toggle_notification">Desativar notificação do app enquanto ele estiver ativo no painel de configurações rápidas</string>
+    <string name="is_running">%s em execução</string>
+    <string name="touch_to_open">Toque para configurar</string>
+    <string name="noti_action_pause">Pausar</string>
+    <string name="noti_action_resume">Retomar</string>
+    <string name="noti_action_stop">Parar</string>
+
+    <string name="dialog_enable_accessibility_msg">Habilite esse app nas configurações  de acessibilidade do seu aparelho para poder obter informações sobre a activity atual no Android 5.0 ou superior</string>
+    <string name="dialog_enable_accessibility_positive_btn">Habilitar</string>
+    <string name="toast_add_tile">"Adicione o ícone do app no painel de configurações rápidas primeiro! "</string>
+
+    <string name="dialog_enable_overlay_window_msg">Habilite a permissão para sobrepor a tela de outros aplicativos no Android 7.1.1 ou superior</string>
+    <string name="dialog_enable_overlay_window_positive_btn">configurações</string>
+</resources>
