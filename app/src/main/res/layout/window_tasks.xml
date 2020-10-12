@@ -7,8 +7,9 @@
 
     <TextView
         android:id="@+id/text"
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#55000000"
-        android:textColor="#FFFFFF"/>
+        android:background="#80FFFFFF"
+        android:textColor="#000000"/>
 </ScrollView>
